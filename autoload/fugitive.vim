@@ -2910,11 +2910,11 @@ function! fugitive#BufReadStatus(...) abort
     endif
 
     call s:AddSection('Rebasing ' . rebasing_head, rebasing)
-    call s:AddSection('Untracked', untracked)
-    call s:AddSection('Unstaged', unstaged)
-    let unstaged_end = len(unstaged) ? line('$') : 0
     call s:AddSection('Staged', staged)
     let staged_end = len(staged) ? line('$') : 0
+    call s:AddSection('Unstaged', unstaged)
+    let unstaged_end = len(unstaged) ? line('$') : 0
+    call s:AddSection('Untracked', untracked)
 
     let unique_push_ref = push_ref ==# pull_ref ? '' : push_ref
     let unpushed_push = s:QueryLogRange(unique_push_ref, head)
